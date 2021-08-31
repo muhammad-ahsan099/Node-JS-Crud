@@ -2,6 +2,7 @@
 var orderModal = require("./OrdersModal");
 
 module.exports.createStudent = (req, res) => {
+  console.log("Req User: " , req.user);
   const newStudent = new orderModal({
     orderId: req.body.id,
     createdAt: new Date(),

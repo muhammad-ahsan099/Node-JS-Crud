@@ -1,6 +1,4 @@
-
-
-
+require("dotenv").config();
 var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser")
@@ -8,6 +6,7 @@ var dbConnection = require("./config/Db");
 // Routes List
 var StudentsRoute = require("./components/orders/OrdersRoutes");
 var AuthRoutes = require("./components/auth/AuthRoutes");
+
 
 
 var app = express();
@@ -27,8 +26,10 @@ app.get("/", function (req, res) {
   res.send("Server is working");
 });
 
-app.use("/student", StudentsRoute);
 app.use("/auth", AuthRoutes);
+
+app.use("/student", StudentsRoute);
+
 
 app.listen("5000", (err) => {
   if (err) {
